@@ -23,11 +23,13 @@ class HabitViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action == "list":
-            return [AllowAny()]
+            return [AllowAny]
+        elif self.action == "create":
+            return [IsAuthenticated]
         elif self.action in ["retrieve", "update", "partial_update", "destroy"]:
             # Разрешаем доступ только к собственным привычкам для чтения, редактирования,
             # частичного редактирования и удаления
-            return [IsAuthenticated(), IsOwner()]
+            return [IsAuthenticated, IsOwner]
 
         return super().get_permissions()
 
