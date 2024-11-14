@@ -25,3 +25,19 @@
 3. Настройте базу данных
 4. Выполните миграции: python manage.py migrate
 5. Запустите сервер: python manage.py runserver
+
+## Запуск проекта с Docker
+
+
+1. Настройте переменные окружения в файле `.env` по примеру из `.env.sample`:
+
+2. Создание образа из Dockerfile: 
+```docker-compose build```
+
+3. Запуск контейнера: 
+```docker-compose up```
+
+или
+
+3.1 Создание образа с запуском контейнера: 
+```docker-compose up --build```
